@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import './widgets/new_transactions.dart';
 import './widgets/transaction_list.dart';
 import 'models/transaction.dart';
+
 
 void main() => runApp(const MyApp());
 
@@ -13,7 +15,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Personal Expenses',
-      theme: ThemeData(primarySwatch: Colors.purple, accentColor: Colors.amber),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        accentColor: Colors.amber,
+        fontFamily: 'QuickSand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              titleMedium: const TextStyle(
+                fontFamily: 'OpenSans',
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       home: MyHomePage(),
     );
   }
@@ -28,30 +48,30 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'New dress',
-      amount: 10.29,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'test',
-      amount: 10.29,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'New book',
-      amount: 10.29,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: 't1',
+    //   title: 'New Shoes',
+    //   amount: 69.99,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'New dress',
+    //   amount: 10.29,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2', 
+    //   title: 'test',
+    //   amount: 10.29,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'New book',
+    //   amount: 10.29,
+    //   date: DateTime.now(),
+    // ),
   ];
   void _addNewTransaction(String txTitle, double txAmount) {
     final newTx = Transaction(
@@ -83,7 +103,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Personal Expenses'),
+        title: const Text(
+          'Personal Expenses',
+          style: TextStyle(fontFamily: 'OpenSans'),
+        ),
         actions: [
           IconButton(
             onPressed: () => _startAddNewTransaction(context),
