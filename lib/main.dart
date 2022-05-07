@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './widgets/chart.dart';
+import 'widgets/chart.dart';
 
 import './widgets/new_transactions.dart';
 import './widgets/transaction_list.dart';
@@ -48,18 +48,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: 't1',
-    //   title: 'New Shoes',
-    //   amount: 69.99,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'New dress',
-    //   amount: 10.29,
-    //   date: DateTime.now(),
-    // ),
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 69.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'New dress',
+      amount: 10.29,
+      date: DateTime.now(),
+    ),
   ];
 
   List<Transaction> get _recentTransactions {
@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Chart(_recentTransactions),
+            // Chart(_recentTransactions),
             TransactionList(_userTransactions),
           ],
         ),
